@@ -1,5 +1,6 @@
 #include <iostream>
 #include <windows.h>
+#include <string> //se uso la libreria string para las cadenas de texto
 using namespace std;
 
 int main(){
@@ -9,21 +10,26 @@ int main(){
 	cout<<"Ingrese la cantidad de nombres que va añadir: ";
 	cin>>n;
 	
-	char nombres[n];
+	string nombres[n];
 	
 	do{
-		i++;
-		cout<<"Ingrese el "<<i<<". nombre: ";
+		cout<<"Ingrese el "<<i+1<<". nombre: ";
 		cin>>nombres[i];
-		
+		i++;
 	}while(i < n);
 	
 	system("cls");
 	
-    //for para ordenar los nombres;
+    for (int i=0; i<n - 1; i++){
+		for (int j=0; j<n-i-1; j++){
+			if (nombres[j]>nombres[j + 1]){
+				swap(nombres[j],nombres[j + 1]); //swap para invertir pocision de letras
+			}
+		}
+	}
     
-    for(int i=0;i<n+1;i++){
-    	cout<<nombres[i]<<endl;
+    for(int i=0;i<n;i++){
+		cout<<i+1<<"._ "<<nombres[i]<<endl;
 	}
 	
 	return 0;
