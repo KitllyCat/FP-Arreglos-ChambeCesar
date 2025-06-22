@@ -1,4 +1,3 @@
-//Rotar las componentes de un vector una posición hacia la derecha.
 #include <iostream>
 #include <windows.h>
 using namespace std;
@@ -17,9 +16,7 @@ int main(){
 		cin>>elemT[i];
 		i++;
 	}while(i<n);
-	
-	int ulT=elemT[n-1];
-	
+		
 	cout<<"El vector actual es:"<<endl<<"[";
 	for(int i=0;i<n;i++){
 		cout<<elemT[i];
@@ -28,14 +25,15 @@ int main(){
 		}
 	}
 	cout<<"]"<<endl<<endl;
+	int ulT=elemT[n-1];
 	
 	for(int i=n-1;i>0;i--){
         elemT[i]=elemT[i-1];
     }
+
+	elemT[0]=ulT;
 	
-	ulT=elemT[0];
-	
-	cout<<"El vector rotado 1 posicion a la derecha es:"<<endl<<"["<<ulT<<", ";
+	cout<<"El vector rotado 1 posicion a la derecha es:"<<endl<<"[";
 	for(int i=0;i<n;i++){
 		cout<<elemT[i];
 		if(i<n-1){
