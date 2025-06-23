@@ -3,8 +3,26 @@
 #include <windows.h>
 using namespace std;
 
-bool tieneApll(const char nombre[], const char apellido[]){
-	
+bool tieneApll(const char nombre[],const char apellido[]){
+	int i=0,j=0;
+
+    while(nombre[i] !='\0'){
+        if(nombre[i]==apellido[0]){
+            int k=i;
+
+            while(apellido[j] !='\0' && nombre[k]==apellido[j]){
+                j++;
+                k++;
+            }
+
+            if(apellido[j]=='\0'){
+                return true;
+            }
+        }
+        i++;
+    }
+
+    return false;
 }
 
 int main() {
@@ -18,9 +36,9 @@ int main() {
     cin.getline(apellido, 50);
 
     if (tieneApll(nombre, apellido)){
-        cout<<"El apellido si le pertenece a la persona (si existe)"<<endl;
+        cout<<endl<<"El apellido '"<<apellido<<"' si le pertenece a la persona (si existe)"<<endl;
     }else{
-        cout<<"El apellido no le pertenece a la persona (no existe)"<<endl;
+        cout<<endl<<"El apellido '"<<apellido<<"' no le pertenece a la persona (no existe)"<<endl;
     }
 
     return 0;
