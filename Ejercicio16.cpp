@@ -4,16 +4,18 @@ Ejemplo: “En aproximadamente 120 días llegaremos al año 2022 y festejaremos�
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <windows.h>
 using namespace std;
 
 int main(){
+	SetConsoleOutputCP(CP_UTF8);
     string ingreso; //cadena string
     cout << "Ingrese cualquier linea de texto(con o sin numeros): ";
     getline(cin, ingreso);//lee completo
     
     string digits_only ="";
     for (size_t i=0;i<ingreso.size();++i){
-        if (isdigit(ingreso[i])){
+        if (isdigit(ingreso[i])){ //Filtra la cadena
             digits_only+=ingreso[i];
         }
     }
@@ -21,7 +23,7 @@ int main(){
     int n=0;
     
     if(!digits_only.empty()){
-        n=atoi(digits_only.c_str());
+        n=atoi(digits_only.c_str()); //convierte la cadena a 'n'
         n+=2;
     }
 
