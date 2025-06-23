@@ -9,7 +9,7 @@ using namespace std;
 int main(){
     SetConsoleOutputCP(CP_UTF8);
     string frase, fraseLimp="";
-    
+    bool siPalind=true;
     cout<<"Ingrese cualquier una frase para comprobar si es un palíndromo: ";
     getline(cin, frase);
     
@@ -39,7 +39,23 @@ int main(){
         fraseLimp+=c; //añadir a la frase que se esta limpiando
     }
 
-    cout<<"Frase limpia: "<<fraseLimp<<endl;
+    int primL=0, ultL=tam-1;
+
+    while(primL<ultL){
+        if(fraseLimp[primL]!=fraseLimp[ultL]){ //verificar si el primer y ultimo caracter de la cadena son iguales
+            siPalind=false;
+            break;
+        }
+        primL++;
+        ultL--;
+    }
+
+    if (siPalind){
+        cout<<"La frase si es un palíndromo :)"<<endl;
+    }else{
+        cout<<"La frase no es un palíndromo :("<<endl;
+    }
+    
     
     return 0;
 }
