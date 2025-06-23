@@ -34,6 +34,5 @@ int main(){
     } else{
         cout<<endl<<"El arreglo no está ordenado :("<<endl;
     }
-	
 	return 0;
 }
