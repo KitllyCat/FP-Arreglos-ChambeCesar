@@ -1,4 +1,3 @@
-//Implementar una función que reciba un vector, su longitud y retorne true si el mismo se encuentra ordenado, false en caso contrario.
 #include <iostream>
 #include <windows.h>
 using namespace std;
@@ -6,10 +5,10 @@ using namespace std;
 bool ordnYverf(int nums[], int tam) {
     for(int i=0;i<tam-1;i++){
         if(nums[i]>nums[i+1]){
-            return false; // Si hay un elemento mayor al siguiente, no está ordenado
+            return false; 
         }
     }
-    return true; // Si pasa todo el ciclo sin romper, está ordenado
+    return true;
 }
 
 int main(){
