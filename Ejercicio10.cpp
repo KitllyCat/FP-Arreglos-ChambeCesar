@@ -6,20 +6,32 @@
 #include <cstdlib>
 using namespace std;
 
-void randNum(){
-	
-}
-
 void moda(){
 	
+	
+	cout<<"La moda es de "<<endl;	
 }
 
-void media(){
-	
+void media(int tam, int nums[]){
+	int aux;
+	for(int i=0;i<tam-1;i++){
+		for(int j=i+1;j<tam;j++){
+			if(nums[i]>nums[j]){
+				aux=nums[i];
+				nums[i]=nums[j];
+				nums[j]=aux;
+			}
+		}
+	}
+	int media=(nums[14]+nums[15])/2;
+	cout<<"La media es de "<<media<<endl;
+	cout<<"Los numeros son:["<<nums[14]<<"] y ["<<nums[15]<<"]"<<endl<<endl;
 }
 
 void prom(){
 	
+	
+	cout<<"La mediana es de "<<endl;
 }
 int main(){
 	srand(time(0));
@@ -31,7 +43,23 @@ int main(){
 	cout<<endl;
 	system("pause");
 	system("cls");
-
+	
+	for(int i=0;i<tam;i++){
+		nums[i]=rand()% 900+101;
+	}
+	
+	cout<<"Los 30 numeros son:"<<endl<<"[";
+	for(int i=0;i<tam;i++){
+		cout<<nums[i];
+		if(i<tam-1){
+		cout<<", ";
+		}
+	}
+	cout<<"]"<<endl<<endl;
+	
+	moda();
+	media(tam,nums);
+	prom();
 	
 	return 0;
 }
