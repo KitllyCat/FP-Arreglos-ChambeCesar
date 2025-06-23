@@ -6,14 +6,26 @@
 #include <iostream>
 #include <windows.h>
 using namespace std;
+const int numMes = 12;
+string mes[12]={"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio","Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
 
-void calcProm(double *prom){
-	
-	cout<<"Promedio mensual de las ventas de todo el año: "<<prom<<endl;
+double calcProm(double ventas[]){
+    double suma=0;
+    for (int i=0;i<numMes;i++){
+        suma+=ventas[i];
+    }
+    double prom=suma/numMes;
+    cout<<"El promedio mensual de las ventas de todo el año es de: "<<prom<<endl<<endl;
+    return prom;
 }
 
-void mesExit(double prom){
-	
+void mesExit(double ventas[], double prom){
+    cout<<"Meses con ventas EXCELENTES~!!! (más del 75% del promedio): ";
+    for(int i=0;i<numMes;i++){
+        if(ventas[i]>prom*0.75){
+            cout<<"- "<<mes[i]<<endl;
+        }
+    }
 }
 
 void cuadro(){
@@ -22,25 +34,23 @@ void cuadro(){
 
 int main(){
     SetConsoleOutputCP(CP_UTF8);
-	const int numMes = 12;
-	string mes[12]={"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio","Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
 	double ventas[numMes];
 	double prom=0;
 	int i=0;
-	char opcion;
+	int opcion;
 	
 	cout<< "--- Almacen la Milagrosa ---"<<endl<<endl;
    	cout<<"Realiza el almacenamiento de datos para continuar: "<<endl;
    	system("pause");
 	
 	do{
-		cout<<"Ingrese la cantidad total de ventas del mes de "<<mes[i]<<".";
+		cout<<"Ingrese la cantidad total de ventas del mes de "<<mes[i]<<": ";
 		cin>>ventas[i];
 		i++;
 	}while(i<numMes);
-	
+	system("cls");
 	do{
-		cout<< "--- Almacen la Milagrosa ---"<<endl<<endl;
+		cout<<endl<<"--- Almacen la Milagrosa ---"<<endl<<endl;
     	cout<<"Escoja la opcion que desee:"<<endl<<endl;
     	cout<<"1) Calcular la venta mensual promedio"<<endl;
 		cout<<"2) Mostrar cuales meses la venta fue excelente"<<endl;
@@ -50,23 +60,28 @@ int main(){
         cin>>opcion;
         switch (opcion){
             case 1:
-                calcProm(*prom);
-                break;
+                prom=calcProm(ventas);
+                system("pause");
+                system("cls");
+				break;
             case 2:
-                calcProm();
-                mesExit(prom);
+                mesExit(ventas, prom);
+                system("pause");
+                system("cls");
                 break;
             case 3:
                 cuadro();
+                system("pause");
+                system("cls");
                 break;
             case 4:
-                cout <<"Saliendo del programa...";
+                cout <<"Saliendo del programa..."<<endl;
                 break;
             default:
-                cout<<"Opción no válida!!! Intente de nuevo.";
+                cout<<"Opción no válida!!! Intente de nuevo."<<endl;
+                system("pause");
+                system("cls");
         }
-    	
-    	
 	}while(opcion!=4);
 	
     return 0;
