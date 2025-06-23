@@ -20,7 +20,7 @@ double calcProm(double ventas[]){
 }
 
 void mesExit(double ventas[], double prom){
-    cout<<"Meses con ventas EXCELENTES~!!! (más del 75% del promedio): ";
+    cout<<"Meses con ventas EXCELENTES~!!! (más del 75% del promedio): "<<endl;
     for(int i=0;i<numMes;i++){
         if(ventas[i]>prom*0.75){
             cout<<"- "<<mes[i]<<endl;
@@ -29,7 +29,11 @@ void mesExit(double ventas[], double prom){
 }
 
 void cuadro(){
-	
+    cout<<"Nivel ventas\tDescripcion"<<endl;
+    cout<<"-------------\t-----------------------------------------------------"<<endl;
+    cout<<"Minimo\t\tMenos del 40% del promedio anual de ventas"<<endl;
+    cout<<"Regular\t\tEntre el 40% a 75% del promedio de ventas"<<endl;
+    cout<<"Excelente\tMas del 75% del promedio mensual"<<endl<<endl;
 }
 
 int main(){
