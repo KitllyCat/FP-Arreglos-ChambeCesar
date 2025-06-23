@@ -8,6 +8,7 @@ using namespace std;
 
 int main(){
     SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(1252); //estare usando caractres ascii especificos
     string frase, fraseLimp="";
     bool siPalind=true;
     cout<<"Ingrese cualquier una frase para comprobar si es un palíndromo: ";
@@ -17,19 +18,21 @@ int main(){
     
     for (int i=0;i<tam;i++){
         char c=frase[i];
+        unsigned char uc = (unsigned char)c;  //para comprobar por medio de los codigo ascii
+        
         if(c==' '){
         	continue; //si no pasa eso, entonces que siga
 		}
 
-        if(c=='á'||c=='Á'){ //limpiado de tildes
+        if(uc==160||c=='Á'){ //160 es el valor de 'á'
         	c='a';
-		}else if(c=='é'||c=='É'){
+		}else if(uc==130||c=='É'){ //´´ 'é'
 			c='e';
-		}else if(c=='í'||c=='Í'){
+		}else if(uc==161||c=='Í'){ //´´ 'í'
 			c='i';
-		}else if(c=='ó'||c=='Ó'){
+		}else if(uc==162||c=='Ó'){ //´´ 'ó'
 			c='o';
-		}else if(c=='ú'||c=='Ú'){
+		}else if(uc==163||c=='Ú'){ //´´ 'ú'
 			c='u';
 		}
 
